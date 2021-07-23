@@ -48,7 +48,7 @@ int main()
         if((x=jumpsearch(a,n,key))==-1)
          cout<<"not present "<<c;
         else
-         cout<<"present "<<  c;
+         cout<<"Present "<<  c;
     }
 }
 
