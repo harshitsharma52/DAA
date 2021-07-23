@@ -1,45 +1,53 @@
 #include<iostream>
-#include<cmath>
 using namespace std;
-
-void duplicatecount(int a[],int n,int key)
+int  Binary_search(int arr[], int left,int right,int key)
 {
-    int j;
-    for(int i=0 ; i<n-1 ; i++)
+
+    
+    if(right >= left)
     {
-        if(a[i]==key)
-        {
-            j=i+1;
-
-            while(a[j]==key)
-             j++;
-            
-            cout<<key<<"-"<<j-i;
-        }
+        int m = left + (right - left)/2;
+        if(arr[m] == key)
+         return m;
+        
+        if(arr[m] > key)
+            return Binary_search(arr,left,m-1,key);
+        else  
+            return Binary_search(arr,m+1,right,key);
     }
-
+    else
+        return -1;
+    
 }
-
-
 
 int main()
 {
-    int t;
+    int t,j;
     cin>>t;
     while(t--)
     {
         int n;
         cin>>n;
-        int a[n];
-        for(int i=0;i<n;i++)
-         cin>>a[i];
-
+        int arr[n];
+        for(int i = 0; i < n; i++)
+        {
+            cin>>arr[i];
+        }
         int key;
         cin>>key;
-
-        duplicatecount(a,n,key);
-        
-       
+        int result = Binary_search(arr,0,n-1,key);
+     
+        if(result > 0)
+        {
+            j=result+1;
+            while(arr[j]==key)
+             j++;
+            
+            cout<<key<<"-"<<j-result<<"\n";
+        }
+        else
+            cout<<"Not Present "<<"\n";
     }
+    return 0;
 }
 
