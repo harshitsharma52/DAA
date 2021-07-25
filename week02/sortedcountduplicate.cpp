@@ -8,7 +8,15 @@ int  Binary_search(int arr[], int left,int right,int key)
     {
         int m = (left+right)/2;
         if(arr[m] == key)
-         return m;
+        {
+             while(arr[m] == key)
+            {
+                if(m == -1)
+                    break;
+                m--;
+            }
+            return m+=1;
+        }
         
         if(arr[m] > key)
             return Binary_search(arr,left,m-1,key);
