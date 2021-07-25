@@ -6,7 +6,7 @@ int  Binary_search(int arr[], int left,int right,int key)
     
     if(right >= left)
     {
-        int m = left + (right - left)/2;
+        int m = (left+right)/2;
         if(arr[m] == key)
          return m;
         
@@ -22,11 +22,11 @@ int  Binary_search(int arr[], int left,int right,int key)
 
 int main()
 {
-    int t,j;
+    int t;
     cin>>t;
     while(t--)
     {
-        int n;
+        int n,j=0;
         cin>>n;
         int arr[n];
         for(int i = 0; i < n; i++)
@@ -37,7 +37,7 @@ int main()
         cin>>key;
         int result = Binary_search(arr,0,n-1,key);
      
-        if(result > 0)
+        if(result >= 0)
         {
             j=result+1;
             while(arr[j]==key)
@@ -47,6 +47,7 @@ int main()
         }
         else
             cout<<"Not Present "<<"\n";
+            j=0;
     }
     return 0;
 }
